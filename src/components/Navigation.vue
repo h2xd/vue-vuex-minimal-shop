@@ -5,10 +5,10 @@
         <router-link class="link" :to="{ name: item.name }">
           <span class="icon" v-html="item.icon"></span>
           <span class="title">{{ item.title }}</span>
-
-          <span v-if="item.name === 'Cart'">
+          <span class="count" v-bind:class="[amount > 0 ? 'has-items' : '']" v-if="item.name === 'Cart'">
             {{amount}}
           </span>
+
         </router-link>
       </li>
     </ul>
@@ -57,9 +57,31 @@
     color: var(--color-text);
 
     transition: all 0.2s ease-in-out;
+    position: relative;
 
     &.is-active {
       color: var(--color-accent);
+    }
+  }
+
+  .count {
+    position: absolute;
+    top: 17px;
+    right: 30px;
+    border-radius: 20px;
+    background-color: var(--color-accent);
+    color: #fff;
+    font-size: 0.6rem;
+    text-align: center;
+    transform: scale(0);
+    width: 18px;
+    height: 15px;
+    line-height: 15px;
+    transition: all 0.1s ease-in-out;
+
+    &.has-items {
+      transform: scale(1);
+      background-color: var(--color-signal);
     }
   }
 
@@ -79,6 +101,8 @@
     font-size: 0.7em;
     font-weight: bold;
   }
+
+
 </style>
 
 <script>
