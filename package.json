@@ -1,0 +1,48 @@
+{
+  "name": "vue-vuex-minimal-shop",
+  "version": "1.0.0",
+  "description": "Trying out vue + vuex",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "NODE_ENV=development npx webpack-dev-server",
+    "build": "NODE_ENV=production npx webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h2xd/vue-vuex-minimal-shop.git"
+  },
+  "keywords": [
+    "vue",
+    "vuex",
+    "shop"
+  ],
+  "author": "Andreas Schujkow <a.schujkow@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/h2xd/vue-vuex-minimal-shop/issues"
+  },
+  "homepage": "https://github.com/h2xd/vue-vuex-minimal-shop#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.13.1",
+    "resolve-url-loader": "^3.1.1",
+    "sass-loader": "^8.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.9.0",
+    "vue-router": "^3.1.5",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "vuex": "^3.1.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {}
+}
