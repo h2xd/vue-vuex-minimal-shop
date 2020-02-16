@@ -1,7 +1,13 @@
+import products from './gen/products';
+
 const storeConfig = {
   modules: {},
-  getters: {},
-  state: {},
+  getters: {
+    getProducts: state => state.products
+  },
+  state: {
+    products,
+  },
   mutations: {},
   actions: {},
 };
