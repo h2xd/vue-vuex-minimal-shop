@@ -27,6 +27,11 @@ const config = {
       {
         test: /\.scss$/,
         loader: 'vue-style-loader!css-loader!resolve-url-loader!sass-loader'
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+
       }
     ]
   },
