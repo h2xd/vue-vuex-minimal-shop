@@ -1,0 +1,33 @@
+%button-base {
+  grid-area: button;
+  border: 0;
+  outline: 0;
+  border-radius: 200px;
+  padding: 10px 20px;
+  color: #fff;
+  
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  &:active {
+    transition: none;
+    transform: scale(0.8);
+  }
+}
+
+@mixin button ($highlight: false) {
+  @extend %button-base;
+
+  @if ($highlight) {
+    background-color: var(--color-signal);
+  } @else {
+    background-color: var(--color-accent);
+  }
+
+  @content;
+}
