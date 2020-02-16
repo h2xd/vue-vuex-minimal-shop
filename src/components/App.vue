@@ -16,6 +16,8 @@
 </template>
 
 <style lang="scss">
+  @import "../scss/main.scss";
+
   * {
     padding: 0;
     margin: 0;
@@ -26,9 +28,10 @@
     --color-text: #444;
     --color-main: #469eec;
     --color-accent: #00cc80;
-    --color-background: #fefefe;
+    --color-background: #ebfff8;
 
     --middle-fontsize: 0.8rem;
+    --media-desktop: 800px;
   }
 
   header {
@@ -47,11 +50,25 @@
     display: grid;
     grid-template-areas: "header" "content" "navigation";
     grid-template-rows: 50px 1fr 50px;
+
+    @include for-medium-screens {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 20px 0;
+
+      grid-template-areas: "header navigation" "content content";
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 3rem;
+    }
   }
 
   .content {
     grid-area: content;
-    padding: 1rem;
+    padding: 1rem 1rem 0;
+
+    @include for-medium-screens {
+      padding: 0;
+    }
   }
 
 
