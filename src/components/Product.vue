@@ -11,6 +11,8 @@
 </template>
 
 <style lang="scss">
+  @import "../scss/components/_button.scss";
+
   .product-card {
     display: grid;
     grid-template-areas:
@@ -48,25 +50,7 @@
     }
 
     > .product-order-btn {
-      grid-area: button;
-      border: 0;
-      outline: 0;
-      border-radius: 200px;
-      padding: 10px 20px;
-      color: #fff;
-      background-color: var(--color-accent);
-      font-weight: bold;
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        opacity: 0.7;
-        cursor: pointer;
-      }
-
-      &:active {
-        transition: none;
-        transform: scale(0.8);
-      }
+      @include button;
     }
   }
 </style>
