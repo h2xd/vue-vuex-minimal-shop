@@ -12,7 +12,10 @@
           <div class="item-cart-grid-amount">{{item.amount}}</div>
           <div class="item-cart-grid-price">{{item.singlePrice}}</div>
           <div class="item-cart-grid-total">{{item.totalPrice}}</div>
-          <div class="item-cart-grid-actions"></div>
+          <div class="item-cart-grid-actions">
+            <button @click="addToCart(item.product.id)">+</button>
+            <button @click="removeFromCart(item.product.id, 1)">-</button>
+          </div>
         </div>
       </div>
 
@@ -118,6 +121,20 @@
       },
       total() {
         return formatPrice(this.$store.getters.getTotalCartAmount);
+      }
+    },
+    methods: {
+      addToCart(id) {
+        this.$store.commit('addToCart', {
+          id,
+          amount: 1
+        });
+      },
+      removeFromCart(id, amount) {
+        this.$store.commit('removeFromCart', {
+          id,
+          amount
+        });
       }
     },
     data() {
