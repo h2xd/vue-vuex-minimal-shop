@@ -72,7 +72,8 @@
 </style>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState } from 'vuex';
+  import formatPrice from '../utils/formatPrice';
 
   export default {
     props: {
@@ -83,7 +84,7 @@
         return this.$store.getters.getProductById(this.id)
       },
       price() {
-        return new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(this.$store.getters.getProductById(this.id).price);
+        return formatPrice(this.$store.getters.getProductById(this.id).price);
       }
     },
     methods: {
