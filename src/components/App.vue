@@ -23,15 +23,21 @@
   }
 
   :root {
+    --color-text: #444;
+    --color-main: #469eec;
     --color-accent: #00cc80;
     --color-background: #fefefe;
+
+    --middle-fontsize: 0.8rem;
   }
 
   header {
     grid-area: header;
 
     .title {
-      color: var(--color-accent);
+      background-color: var(--color-accent);
+      color: var(--color-background);
+      line-height: 50px;
       font-size: 1rem;
       text-align: center;
     }
@@ -40,7 +46,7 @@
   .app {
     display: grid;
     grid-template-areas: "header" "content" "navigation";
-    grid-template-rows: 25px 1fr 50px;
+    grid-template-rows: 50px 1fr 50px;
   }
 
   .content {
