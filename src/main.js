@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 
 import router from './config/router';
 import VuexStoreConfig from './config/store';
-import App from './componets/App.vue';
+import App from './components/App.vue';
 
 // if (enableAnalytics) {
 //   const VueAnalytics = require('vue-analytics').default;
