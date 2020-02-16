@@ -21,6 +21,7 @@
     width: 100%;
     height: 50px;
     background-color: var(--color-background);
+    box-shadow: 0 -6px 12px -1px rgba(0, 0, 0, 0.2);
 
     > ul {
       list-style: none;
@@ -38,9 +39,16 @@
     display: grid;
     grid-template-areas: "icon" "title";
     text-align: center;
-    color: var(--color-accent);
     text-decoration: none;
-    padding: 5px;
+    padding: 8px;
+
+    color: var(--color-text);
+
+    transition: all 0.2s ease-in-out;
+
+    &.is-active {
+      color: var(--color-accent);
+    }
   }
 
   .icon {
@@ -56,7 +64,8 @@
   .title {
     grid-area: title;
     text-transform: uppercase;
-    font-size: 0.8em;
+    font-size: 0.7em;
+    font-weight: bold;
   }
 </style>
 
