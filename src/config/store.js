@@ -1,4 +1,5 @@
 import products from './gen/products';
+import formatPrice from '../utils/formatPrice';
 
 const storeConfig = {
   modules: {},
@@ -12,8 +13,12 @@ const storeConfig = {
     },
     getCart: state => {
       return state.cart.map(item => {
+        const product = state.products.find(product => product.id === item[0]);
+
         return {
-          product: state.products.find(product => product.id === item[0]),
+          product,
+          totalPrice: formatPrice(product.price * item[1]),
+          singlePrice: formatPrice(product.price),
           amount: item[1]
         }
       });
@@ -40,7 +45,7 @@ const storeConfig = {
           productFound = true;
           return [item[0], item[1] + amount]
         } else {
-          return [item[0], amount]
+          return [item[0], item[1]]
         }
       });
 
