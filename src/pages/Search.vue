@@ -11,7 +11,7 @@
     name: 'Index',
     data() {
       return {
-        title: 'Search',
+        title: 'Search for an Image',
       };
     },
   };
