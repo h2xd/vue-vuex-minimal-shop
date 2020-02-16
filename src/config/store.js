@@ -18,7 +18,12 @@ const storeConfig = {
         }
       });
     },
-    getCartAmount: state => state.cart.length
+    getCartAmount: state => state.cart.length,
+    getTotalCartAmount: state => state.cart.map(item => {
+      const product = state.products.find(product => product.id === item[0]);
+
+      return product.price * item[1];
+    }).reduce((prev, current) => prev + current, 0)
   },
   state: {
     products,
