@@ -5,6 +5,10 @@
         <router-link class="link" :to="{ name: item.name }">
           <span class="icon" v-html="item.icon"></span>
           <span class="title">{{ item.title }}</span>
+
+          <span v-if="item.name === 'Cart'">
+            {{amount}}
+          </span>
         </router-link>
       </li>
     </ul>
@@ -13,6 +17,8 @@
 
 
 <style lang="scss">
+  @import "../scss/main.scss";
+
   nav {
     grid-area: navigation;
     position: fixed;
@@ -22,6 +28,12 @@
     height: 50px;
     background-color: var(--color-background);
     box-shadow: 0 -6px 12px -1px rgba(0, 0, 0, 0.2);
+
+    @include for-medium-screens {
+      padding: 0;
+      position: relative;
+      box-shadow: none;
+    }
 
     > ul {
       list-style: none;
@@ -76,6 +88,11 @@
 
   export default {
     name: 'Navigation',
+    computed: {
+      amount() {
+        return this.$store.getters.getCartAmount.toString()
+      }
+    },
     data() {
       return {
         navigation: [
