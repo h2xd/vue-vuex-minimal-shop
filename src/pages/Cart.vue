@@ -16,7 +16,9 @@
             <button @click="addToCart(item.product.id)">+</button>
             <button @click="removeFromCart(item.product.id, 1)">-</button>
           </div>
-          <button class="item-cart-grid-removeAll" @click="removeFromCart(item.product.id, item.amount)"></button>
+          <button class="item-cart-grid-removeAll" @click="removeFromCart(item.product.id, item.amount)">
+            Remove
+          </button>
         </div>
       </div>
 
@@ -30,12 +32,16 @@
 </template>
 
 <style lang="scss">
+  @import "../scss/components/button";
+
   .item-cart-grid {
     display: grid;
     grid-template-areas:
-      "image . title  title   title"
-      "image . amount price   total"
-      "image . actions . removeAll";
+      "image . title   title   title"
+      "image . amount  price   total"
+      "image . actions actions removeAll";
+
+    grid-row-gap: 0.5rem;
 
     grid-template-columns: minmax(50px, 75px) 1rem 60px 1fr 1fr;
     margin-bottom: 1rem;
@@ -83,16 +89,31 @@
     @include label('Sum');
   }
 
+  %actionButton {
+    width: 30px;
+    height: 24px;
+    line-height: 24px;
+    padding: 0;
+  }
+
   .item-cart-grid-actions {
     grid-area: actions;
+
+    > button {
+      @include button {
+        @extend %actionButton;
+      }
+    }
   }
 
   .item-cart-grid-removeAll {
+    @include button(true) {
+      @extend %actionButton;
+    }
+
+    width: 100%;
     grid-area: removeAll;
   }
-
-  
-
 
   .page-title {
     margin-bottom: 20px;
