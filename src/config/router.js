@@ -8,6 +8,7 @@ Vue.use(Router);
 
 const router = new Router({
   mode: 'hash',
+  linkExactActiveClass: 'is-active',
   routes: [
     {
       path: '/',
