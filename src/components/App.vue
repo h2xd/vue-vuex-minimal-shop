@@ -63,7 +63,7 @@
     },
     data() {
       return {
-        title: 'Images for all',
+        title: 'Imgmeer',
       };
     },
   };
