@@ -6,7 +6,7 @@
     </router-link>
     <p class="product-description">{{product.description}}</p>
     <span class="product-price">{{price}}</span>
-    <button class="product-order-btn">Order now</button>
+    <button class="product-order-btn" @click="addToCart">Add to cart</button>
   </div>
 </template>
 
@@ -43,10 +43,30 @@
 
     > .product-price {
       grid-area: price;
+      font-weight: bold;
+      font-style: italic;
     }
 
     > .product-order-btn {
       grid-area: button;
+      border: 0;
+      outline: 0;
+      border-radius: 200px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: var(--color-accent);
+      font-weight: bold;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+
+      &:active {
+        transition: none;
+        transform: scale(0.8);
+      }
     }
   }
 </style>
@@ -64,6 +84,14 @@
       },
       price() {
         return new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(this.$store.getters.getProductById(this.id).price);
+      }
+    },
+    methods: {
+      addToCart() {
+        this.$store.commit('addToCart', {
+          id: this.id,
+          amount: 1
+        });
       }
     }
   };
