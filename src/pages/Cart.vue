@@ -16,6 +16,7 @@
             <button @click="addToCart(item.product.id)">+</button>
             <button @click="removeFromCart(item.product.id, 1)">-</button>
           </div>
+          <button class="item-cart-grid-removeAll" @click="removeFromCart(item.product.id, item.amount)"></button>
         </div>
       </div>
 
@@ -34,7 +35,7 @@
     grid-template-areas:
       "image . title  title   title"
       "image . amount price   total"
-      "image . .      actions actions";
+      "image . actions . removeAll";
 
     grid-template-columns: minmax(50px, 75px) 1rem 60px 1fr 1fr;
     margin-bottom: 1rem;
@@ -85,6 +86,12 @@
   .item-cart-grid-actions {
     grid-area: actions;
   }
+
+  .item-cart-grid-removeAll {
+    grid-area: removeAll;
+  }
+
+  
 
 
   .page-title {
