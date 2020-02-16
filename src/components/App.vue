@@ -28,6 +28,7 @@
     --color-text: #444;
     --color-main: #469eec;
     --color-accent: #00cc80;
+    --color-signal: #f05949;
     --color-background: #ebfff8;
 
     --middle-fontsize: 0.8rem;
