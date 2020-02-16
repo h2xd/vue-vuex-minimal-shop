@@ -35,6 +35,17 @@ const storeConfig = {
     cart: []
   },
   mutations: {
+    removeFromCart(state, payload) {
+      const { id, amount } = payload;
+
+      state.cart = state.cart.map(item => {
+        if (item[0] === id) {
+          return [item[0], item[1] - amount]
+        } else {
+          return [item[0], item[1]]
+        }
+      }).filter(item => item[1] > 0);
+    },
     addToCart(state, payload) {
       const { id, amount } = payload;
 
