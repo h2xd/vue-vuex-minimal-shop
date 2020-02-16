@@ -4,11 +4,7 @@
       <li
         v-for="product in products"
         :key="product.id">
-
-        <img :src="product.image">
-        <div>{{product.title}}</div>
-        <p>{{product.description}}</p>
-        <span>{{product.price}}</span>
+        <product :id="product.id" />
       </li>
     </ul>
   </div>
@@ -33,11 +29,13 @@
 </style>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState } from 'vuex';
+  import ProductCard from '../components/Product.vue';
 
   export default {
-    name: 'Index',
-
+    components: {
+      product: ProductCard
+    },
     computed: mapState({
       products: state => state.products
     }),
