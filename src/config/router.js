@@ -3,6 +3,8 @@ import Router from 'vue-router';
 
 import IndexPage from '../pages/Index.vue';
 import SearchPage from '../pages/Search.vue';
+import Cart from '../pages/Cart.vue';
+import Product from '../pages/Product.vue';
 
 Vue.use(Router);
 
@@ -26,6 +28,15 @@ const router = new Router({
         title: 'Search',
       },
     },
+    {
+      path: '/cart',
+      name: 'Cart',
+      component: Cart,
+      meta: {
+        title: 'Cart',
+      },
+    },
+    { path: '/product/:id', component: Product }
   ],
 });
 
