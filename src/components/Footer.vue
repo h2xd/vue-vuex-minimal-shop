@@ -1,5 +1,8 @@
 <template>
   <footer>
+    <button v-if="theme === 'dark'" @click="setTheme('light')">Light Mode</button>
+    <button v-if="theme === 'light'" @click="setTheme('dark')">Dark Mode</button>
+
     <table class="footer-details">
       <tbody>
         <tr>
@@ -45,3 +48,20 @@
 
   }
 </style>
+
+<script>
+  export default {
+    computed: {
+      theme() {
+        return this.$store.getters.getTheme
+      },
+    },
+    methods: {
+      setTheme(theme) {
+        this.$store.commit('setTheme', {
+          theme
+        });
+      }
+    }
+  }
+</script>
