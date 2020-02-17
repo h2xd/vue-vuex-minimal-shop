@@ -5,35 +5,18 @@
         {{ title }}
       </h1>
     </header>
-    <navigation />
+    <Navigation />
 
     <div class="content">
-      <router-view />
-      <app-footer />
+      <RouterView />
+      <Footer />
     </div>
-
   </div>
 </template>
 
 <style lang="scss">
   @import "../scss/main.scss";
-
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
-  :root {
-    --color-text: #444;
-    --color-main: #469eec;
-    --color-accent: #00cc80;
-    --color-signal: #f05949;
-    --color-background: #ebfff8;
-
-    --middle-fontsize: 0.8rem;
-    --media-desktop: 800px;
-  }
+  @import "../scss/layout/main";
 
   header {
     grid-area: header;
@@ -82,8 +65,8 @@
   export default {
     name: 'App',
     components: {
-      'navigation': Navigation,
-      'app-footer': Footer,
+      'Navigation': Navigation,
+      'Footer': Footer,
     },
     data() {
       return {

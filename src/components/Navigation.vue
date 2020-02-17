@@ -2,14 +2,14 @@
   <nav>
     <ul>
       <li v-for="item in navigation">
-        <router-link class="link" :to="{ name: item.name }">
+        <RouterLink class="link" :to="{ name: item.name }">
           <span class="icon" v-html="item.icon"></span>
           <span class="title">{{ item.title }}</span>
           <span class="count" v-bind:class="[amount > 0 ? 'has-items' : '']" v-if="item.name === 'Cart'">
             {{amount}}
           </span>
 
-        </router-link>
+        </RouterLink>
       </li>
     </ul>
   </nav>
