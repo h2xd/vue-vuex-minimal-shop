@@ -51,7 +51,8 @@
     font-size: 2rem;
     grid-column: 1;
     grid-row: 1;
-    text-shadow: 0 3px 6px var(--color-accent);
+    color: var(--color-accent);
+    text-shadow: 0 3px 6px var(--color-background-accent);
   }
 </style>
 
