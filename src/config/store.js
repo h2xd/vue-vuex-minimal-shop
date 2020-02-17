@@ -1,16 +1,24 @@
 import products from './gen/products';
 import formatPrice from '../utils/formatPrice';
+import VuexPersistence from 'vuex-persist';
+
+const vuexLocalStorage = new VuexPersistence({
+  storage: window.localStorage
+});
 
 const storeConfig = {
   modules: {},
   getters: {
     getProducts: state => state.products,
+
     getProductById: (state) => (id) => {
       return state.products.find(product => product.id === id)
     },
+
     search: (state) => (search) => {
       return state.products.find(product => product.title.toLowerCase().search(search.toLowerCase()) > 0)
     },
+
     getCart: state => {
       return state.cart.map(item => {
         const product = state.products.find(product => product.id === item[0]);
@@ -23,16 +31,21 @@ const storeConfig = {
         }
       });
     },
+
     getCartAmount: state => state.cart.length,
+
     getTotalCartAmount: state => state.cart.map(item => {
       const product = state.products.find(product => product.id === item[0]);
 
       return product.price * item[1];
-    }).reduce((prev, current) => prev + current, 0)
+    }).reduce((prev, current) => prev + current, 0),
+
+    getTheme: state => state.theme,
   },
   state: {
     products,
-    cart: []
+    cart: [],
+    theme: 'light'
   },
   mutations: {
     removeFromCart(state, payload) {
@@ -63,8 +76,16 @@ const storeConfig = {
       if (!productFound) {
         state.cart.push([id, amount]);
       }
-    }
+    },
+    setTheme(state, payload) {
+      const { theme } = payload;
+
+      if (theme === 'light' || theme === 'dark') {
+        state.theme = theme;
+      }
+    },
   },
+  plugins: [vuexLocalStorage.plugin]
 };
 
 export default storeConfig;
