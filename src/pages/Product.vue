@@ -8,9 +8,11 @@
 
     <p class="description">{{product.description}}</p>
 
-    <button class="order-button" @click="addToCart">Add to cart</button>
-    <div>
-      {{price}}
+    <div class="grid">
+      <button class="order-button" @click="addToCart">Add to cart</button>
+      <div class="price">
+        {{price}}
+      </div>
     </div>
   </div>
 </template>
@@ -31,8 +33,25 @@
     margin-bottom: 1rem;
   }
 
+  .grid {
+    display: grid;
+    grid-template-colums: 1fr 1fr;
+    grid-column-gap: 1rem;
+  }
+
   .order-button {
     @include button;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .price {
+    display: block;
+    font-weight: bold;
+    font-size: 2rem;
+    grid-column: 1;
+    grid-row: 1;
+    text-shadow: 0 3px 6px var(--color-accent);
   }
 </style>
 
