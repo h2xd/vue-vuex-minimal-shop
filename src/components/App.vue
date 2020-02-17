@@ -41,7 +41,7 @@
     grid-area: header;
 
     .title {
-      background-color: var(--color-accent);
+      background-color: var(--color-main);
       color: var(--color-background);
       line-height: 50px;
       font-size: 1rem;

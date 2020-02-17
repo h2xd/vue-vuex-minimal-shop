@@ -61,7 +61,7 @@
     position: relative;
 
     &.is-active {
-      color: var(--color-accent);
+      color: var(--color-main);
     }
   }
 
@@ -70,7 +70,7 @@
     top: 17px;
     right: 30px;
     border-radius: 20px;
-    background-color: var(--color-accent);
+    background-color: var(--color-main);
     color: #fff;
     font-size: 0.6rem;
     text-align: center;
