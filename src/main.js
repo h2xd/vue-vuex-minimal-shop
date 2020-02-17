@@ -21,6 +21,18 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store(VuexStoreConfig);
 
+store.watch(
+  (state) => {
+    window.document.body.classList.add(state.theme);
+    return state.theme
+  },
+  (value, oldValue) => {
+    console.log(value, oldValue);
+    window.document.body.classList.remove(oldValue);
+    window.document.body.classList.add(value);
+  }
+);
+
 new Vue({
   render: h => h(App),
   router,

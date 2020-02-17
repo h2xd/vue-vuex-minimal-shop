@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body.light {
+  --color-text: #444;
+  --color-main: #469eec;
+  --color-accent: #00cc80;
+  --color-signal: #f05949;
+  --color-background: #ebfff8;
+
+  --middle-fontsize: 0.8rem;
+  --media-desktop: 800px;
+}
+
+body.dark {
+  --color-text: #fafafa;
+  --color-main: #469eec;
+  --color-accent: #00cc80;
+  --color-signal: #f05949;
+  --color-background: #444;
+
+  --middle-fontsize: 0.8rem;
+  --media-desktop: 800px;
+}
+
