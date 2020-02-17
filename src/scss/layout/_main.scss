@@ -20,9 +20,13 @@ body.dark {
   --color-main: #469eec;
   --color-accent: #00cc80;
   --color-signal: #f05949;
-  --color-background: #444;
+  --color-background: #09071c;
 
   --middle-fontsize: 0.8rem;
   --media-desktop: 800px;
 }
 
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+}
