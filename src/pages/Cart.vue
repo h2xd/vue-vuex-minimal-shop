@@ -31,7 +31,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "../scss/components/button";
 
   .item-cart-grid {
