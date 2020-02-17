@@ -8,8 +8,12 @@
     <Navigation />
 
     <div class="content">
-      <RouterView />
-      <Footer />
+      <transition name="fade">
+        <RouterView />
+      </transition>
+      <transition name="fade">
+        <Footer />
+      </transition>
     </div>
   </div>
 </template>
@@ -17,6 +21,21 @@
 <style lang="scss">
   @import "../scss/main.scss";
   @import "../scss/layout/main";
+
+  .fade-enter-active {
+    transition: all .5s ease-in-out;
+    opacity: 1;
+  }
+
+  .fade-leave-active {
+    transition: all 0s ease-in-out;
+    z-index: 0;
+  }
+
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
 
   header {
     grid-area: header;
