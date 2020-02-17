@@ -6,14 +6,35 @@
 
     <img :src="product.image">
 
-    <p class="product-description">{{product.description}}</p>
+    <p class="description">{{product.description}}</p>
 
-    <button class="product-order-btn" @click="addToCart">Add to cart</button>
+    <button class="order-button" @click="addToCart">Add to cart</button>
     <div>
       {{price}}
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  @import "../scss/components/button";
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  .description {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .order-button {
+    @include button;
+  }
+</style>
 
 <script>
   import formatPrice from '../utils/formatPrice.js';
@@ -31,7 +52,7 @@
     methods: {
       addToCart() {
         this.$store.commit('addToCart', {
-          id: this.id,
+          id: this.$route.params.id,
           amount: 1
         });
       }
