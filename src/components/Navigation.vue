@@ -27,7 +27,7 @@
     width: 100%;
     height: 50px;
     z-index: 50;
-    background-color: var(--color-background);
+    background-color: var(--color-background-accent);
     box-shadow: 0 -6px 12px -1px rgba(0, 0, 0, 0.2);
 
     @include for-medium-screens {
