@@ -127,7 +127,7 @@
   .go-shopping {
     padding: 1rem;
     border-radius: 3px;
-    background-color: var(--color-background);
+    background-color: var(--color-background-accent);
     color: var(--color-text);
     width: 100%;
     display: block;
