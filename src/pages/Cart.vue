@@ -7,7 +7,9 @@
       <div class="items">
         <div v-for="item in items" class="item-cart-grid">
           <img :src="item.product.image">
-          <div class="item-cart-grid-title">{{item.product.title}}</div>
+          <RouterLink class="item-cart-grid-title" :to="`/product/${item.product.id}`">
+            {{item.product.title}}
+          </RouterLink>
 
           <div class="item-cart-grid-amount">{{item.amount}}</div>
           <div class="item-cart-grid-price">{{item.singlePrice}}</div>
@@ -72,6 +74,9 @@
 
   .item-cart-grid-title {
     grid-area: title;
+    font-weight: bold;
+    color: var(--color-main);
+    text-decoration: none;
   }
 
   .item-cart-grid-amount {
@@ -132,6 +137,7 @@
 
   .cart-totalprice {
     text-align: right;
+    font-weight: bold;
   }
 </style>
 
