@@ -1,9 +1,9 @@
 <template>
-  <footer>
-    <button v-if="theme === 'dark'" @click="setTheme('light')">Light Mode</button>
-    <button v-if="theme === 'light'" @click="setTheme('dark')">Dark Mode</button>
+  <footer class="footer-details">
+    <button class="theme-button" v-if="theme === 'dark'" @click="setTheme('light')">Light Mode</button>
+    <button class="theme-button" v-if="theme === 'light'" @click="setTheme('dark')">Dark Mode</button>
 
-    <table class="footer-details">
+    <table>
       <tbody>
         <tr>
           <td>Telephone</td>
@@ -28,14 +28,25 @@
 
 <style lang="scss">
   @import "../scss/main.scss";
+  @import "../scss/components/button";
+
+  .theme-button {
+    @include button {
+      margin-bottom: 1rem;
+    }
+  }
 
   .footer-details {
     width: calc(100% + 2rem);
     color: var(--color-text);
     vertical-align: top;
-    background-color: var(--color-background);
+    background-color: var(--color-background-accent);
     padding: 1rem;
     margin: 3rem -1rem 0;
+
+    table {
+      width: 100%;
+    }
 
     @include for-medium-screens {
       margin: 3rem 0 0; 
